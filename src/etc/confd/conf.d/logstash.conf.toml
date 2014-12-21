@@ -1,0 +1,12 @@
+[template]
+src = "logstash.conf.tmpl"
+dest = "/etc/logstash/conf.d/logstash.conf"
+keys = [
+    "LOGSTASH/INPUTS/UDP/WORKERS",
+    "LOGSTASH/INPUTS/UDP/CODEC",
+    "LOGSTASH/OUTPUTS/REDIS/BATCH/EVENTS",
+    "LOGSTASH/OUTPUTS/REDIS/HOST",
+    "LOGSTASH/OUTPUTS/REDIS/PORT",
+    "LOGSTASH/OUTPUTS/REDIS/KEY",
+    "LOGSTASH/OUTPUTS/REDIS/WORKERS",
+]

@@ -1,0 +1,20 @@
+input {
+  udp {
+    codec => "{{getv "/logstash/inputs/udp/codec"}}"
+    port => 2222
+    workers => {{getv "/logstash/inputs/udp/workers"}}
+  }
+}
+
+output {
+  redis {
+    batch => true
+    batch_events => {{getv "/logstash/outputs/redis/batch/events"}}
+    batch_timeout => 5
+    data_type => "list"
+    host => ["{{getv "/logstash/outputs/redis/host"}}"]
+    port => {{getv "/logstash/outputs/redis/port"}}
+    key => "{{getv "/logstash/outputs/redis/key"}}"
+    workers => {{getv "/logstash/outputs/redis/workers"}}
+  }
+}
